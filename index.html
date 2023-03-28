@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Animated Background</title>
+	<title>Dirty Traffik</title>
 	<style>
 		body {
+ 		    overflow: hidden;
 			animation: colorchange 10s infinite;
 			background-color: #000;
 			display: flex;
@@ -55,6 +56,7 @@
 		}
 
 		.timer-label {
+			display: flex;
 			font-size: 20px;
 			font-weight: bold;
 			color: #666;
@@ -63,8 +65,8 @@
 			align-items: center;
 		}
 		
-		.thmbg {
-			width: 25%;
+		.starbox {
+			width: 35%;
 			margin: auto;
 		}
 
@@ -97,6 +99,8 @@
 			}
 		}
 	</style>
+	
+    <script src="https://kit.fontawesome.com/20faf715a1.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="wrap">
@@ -107,18 +111,21 @@
 				<span class="timer-item" id="minutes"></span>
 				<span class="timer-item" id="seconds"></span>
 			</div>
-			<div class="timer-labels">
-				<span class="timer-label">Days</span>
-				<span class="timer-label">Hours</span>
-				<span class="timer-label">Minutes</span>
-				<span class="timer-label">Seconds</span>
+			<div class="timer-label">
+				<span class="timer-item">Days</span>
+				<span class="timer-item">Hours</span>
+				<span class="timer-item">Minutes</span>
+				<span class="timer-item">Seconds</span>
 			</div>
 		</div>
-			<div class="thmbg">
-				<svg class="star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-					<polygon points="12 0 14.859 7.358 22.118 8.119 16 13.151 17.294 20.881 12 17.273 6.706 20.881 8 13.151 1.882 8.119 9.141 7.358" />
-				</svg>
-			</div>
+		<div class="block">
+			<a href="https://www.twitch.tv/dirtytraffik"><i class="fa-brands fa-twitch" style="color: #511f44;"></i></a>
+		</div>
+		<div class="starbox">
+			<svg class="star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+				<polygon points="12 0 14.859 7.358 22.118 8.119 16 13.151 17.294 20.881 12 17.273 6.706 20.881 8 13.151 1.882 8.119 9.141 7.358" />
+			</svg>
+		</div>
 		<div class="block">
 			<h1>Animated Background</h1>
 			<p>This is an example of an HTML page with an animated background that changes colors.</p>
