@@ -29,6 +29,7 @@
 		}
 		
 		.wrap {
+			position: relative;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -40,6 +41,7 @@
 			background-color: white;
 			border-radius: 25px;
 			padding: 20px;
+			margin: 5px;
 		}
 		
 		.timer {
@@ -66,36 +68,55 @@
 		}
 		
 		.starbox {
-			width: 35%;
+			width: 60%;
 			margin: auto;
 		}
 
 		.star {
-			animation: starAnimation 10s infinite;
+			animation: starAnimation 6s infinite;
 			fill: #fff;
 			transform-origin: center;
+		}
+		
+		.stack {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		
+		.profile {
+			z-index: 1;
+			display: flex;
+			width: 25%;
+			margin: auto;
+			background-color: white;
+			border-radius: 25px;
+			padding: 20px;
+			justify-content: center;
+			align-items: center;
 		}
 
 		@keyframes starAnimation {
 			0% {
 				transform: rotate(0) scale(1);
-				clip-path: polygon(40% 0%, 60% 0%, 100% 38%, 75% 62%, 82% 100%, 50% 75%, 18% 100%, 25% 62%, 0% 38%, 40% 0%);
+				<!-- clip-path: polygon(40% 0%, 60% 0%, 100% 38%, 75% 62%, 82% 100%, 50% 75%, 18% 100%, 25% 62%, 0% 38%, 40% 0%); -->
 			}
 			25% {
-				transform: rotate(90deg) scale(1);
-				clip-path: polygon(0% 60%, 0% 40%, 38% 0%, 62% 25%, 100% 18%, 75% 50%, 100% 82%, 62% 75%, 38% 100%, 0% 60%);
+				transform: rotate(90deg) scale(0.75);
+				<!-- clip-path: polygon(0% 60%, 0% 40%, 38% 0%, 62% 25%, 100% 18%, 75% 50%, 100% 82%, 62% 75%, 38% 100%, 0% 60%); -->
 			}
 			50% {
-				transform: rotate(180deg) scale(1);
-				clip-path: polygon(60% 100%, 40% 100%, 0% 62%, 25% 38%, 18% 0%, 50% 25%, 82% 0%, 75% 38%, 100% 62%, 60% 100%);
+				transform: rotate(270deg) scale(1);
+				<!-- clip-path: polygon(60% 100%, 40% 100%, 0% 62%, 25% 38%, 18% 0%, 50% 25%, 82% 0%, 75% 38%, 100% 62%, 60% 100%); -->
 			}
 			75% {
-				transform: rotate(270deg) scale(0.25);
-				clip-path: polygon(100% 40%, 100% 60%, 62% 100%, 38% 75%, 0% 82%, 25% 50%, 0% 18%, 38% 25%, 62% 0%, 100% 40%);
+				transform: rotate(180deg) scale(0.25);
+				<!-- clip-path: polygon(100% 40%, 100% 60%, 62% 100%, 38% 75%, 0% 82%, 25% 50%, 0% 18%, 38% 25%, 62% 0%, 100% 40%); -->
 			}
 			100% {
 				transform: rotate(360) scale(1);
-				clip-path: polygon(40% 0%, 60% 0%, 100% 38%, 75% 62%, 82% 100%, 50% 75%, 18% 100%, 25% 62%, 0% 38%, 40% 0%);
+				<!-- clip-path: polygon(40% 0%, 60% 0%, 100% 38%, 75% 62%, 82% 100%, 50% 75%, 18% 100%, 25% 62%, 0% 38%, 40% 0%); -->
 			}
 		}
 	</style>
@@ -104,6 +125,35 @@
 </head>
 <body>
 	<div class="wrap">
+
+	<script src="https://player.twitch.tv/js/embed/v1.js"></script>
+	<div class="block" id="stream-container" style="display: none;">
+		<div id="twitch-embed"></div>
+	</div>
+	<script type="text/javascript">
+	  var twitchPlayer = new Twitch.Player("twitch-embed", {
+		channel: "dirtytraffik",
+		width: 640,
+		height: 360,
+		autoplay: false,
+		muted: false,
+		allowfullscreen: true
+		clientID: "your_client_id_here"
+	  });
+
+	  twitchPlayer.addEventListener(Twitch.Player.ONLINE, function() {
+		console.log("DirtyTraffik is live!");
+		// Show the div element with the Twitch stream
+		document.getElementById("stream-container").style.display = "block";
+	  });
+
+	  twitchPlayer.addEventListener(Twitch.Player.OFFLINE, function() {
+		console.log("DirtyTraffik is offline :(");
+		// Hide the div element with the Twitch stream
+		document.getElementById("stream-container").style.display = "none";
+	  });
+	</script>
+
 		<div class="block">
 			<div class="timer" id="timer">
 				<span class="timer-item" id="days"></span>
@@ -125,6 +175,9 @@
 			<svg class="star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 				<polygon points="12 0 14.859 7.358 22.118 8.119 16 13.151 17.294 20.881 12 17.273 6.706 20.881 8 13.151 1.882 8.119 9.141 7.358" />
 			</svg>
+		</div>
+		<div class="stack profile" >
+			<img src="https://i.postimg.cc/yYtTf0DG/dirtytraffikprofile.png" style="width: 100%; border: 2px solid #511f44; padding: 5px 5px;" alt="profile pic">
 		</div>
 		<div class="block">
 			<h1>Animated Background</h1>
