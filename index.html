@@ -80,7 +80,7 @@
 		
 		.stack {
 			position: absolute;
-			top: 50%;
+			top: 55%;
 			left: 50%;
 			transform: translate(-50%, -50%);
 		}
@@ -136,22 +136,41 @@
 	  // channel: "dirtytraffik",
 		video: "1791207960",
 		parent: ["saturdayxiii.github.io", "dirtytraffik.live"]
+		/*
+		allowfullscreen: true
+		width: 640,
+		height: 360,
+		autoplay: true,
+		muted: true,
+		*/
 		// clientID: "your_client_id_here"
 	  };
 	  var player = new Twitch.Player("twitch-embed", options);
 
 	// make div appear/disappear based on stream activity
-	  
+	  /*
+	  twitchPlayer.addEventListener(Twitch.Player.ONLINE, function() {
+		console.log("DirtyTraffik is live!");
+		// Show the div element with the Twitch stream
+		document.getElementById("stream-container").style.display = "block";
+	  });
+
+	  twitchPlayer.addEventListener(Twitch.Player.OFFLINE, function() {
+		console.log("DirtyTraffik is offline :(");
+		// Hide the div element with the Twitch stream
+		document.getElementById("stream-container").style.display = "none";
+	  });
+	  */
 	</script>
 
-		<div class="block">
+		<div class="block" style="display:none;">
 			<div class="timer" id="timer">
 				<span class="timer-item" id="days"></span>
 				<span class="timer-item" id="hours"></span>
 				<span class="timer-item" id="minutes"></span>
 				<span class="timer-item" id="seconds"></span>
 			</div>
-			<div class="timer-label">
+			<div class="timer-label" style="display:none;">
 				<span class="timer-item">Days</span>
 				<span class="timer-item">Hours</span>
 				<span class="timer-item">Minutes</span>
@@ -166,10 +185,10 @@
 			<svg class="star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 				<polygon points="12 0 14.859 7.358 22.118 8.119 16 13.151 17.294 20.881 12 17.273 6.706 20.881 8 13.151 1.882 8.119 9.141 7.358" />
 			</svg>
-		</div>
+		
 		<div class="stack profile" >
 			<img src="https://i.postimg.cc/yYtTf0DG/dirtytraffikprofile.png" style="width: 100%; border: 2px solid #511f44; padding: 5px 5px;" alt="profile pic">
-		</div>
+		</div></div>
 		<div class="block">
 			<h1>Animated Background</h1>
 			<p>This is an example of an HTML page with an animated background that changes colors.</p>
