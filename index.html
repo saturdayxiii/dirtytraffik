@@ -127,18 +127,20 @@
 	<div class="wrap">
 
 	<script src="https://player.twitch.tv/js/embed/v1.js"></script>
-	<div class="block" id="stream-container" style="display: none;">
+	<div class="block" id="stream-container" style="display: block;">
 		<div id="twitch-embed"></div>
 	</div>
 	<script type="text/javascript">
 	  var twitchPlayer = new Twitch.Player("twitch-embed", {
-		channel: "dirtytraffik",
+		// channel: "dirtytraffik",
+		video: "1791207960",
+		parent: ["saturdayxiii.github.io", "dirtytraffik.live"]
 		width: 640,
 		height: 360,
-		autoplay: false,
-		muted: false,
+		autoplay: true,
+		muted: true,
 		allowfullscreen: true
-		clientID: "your_client_id_here"
+		// clientID: "your_client_id_here"
 	  });
 
 	  twitchPlayer.addEventListener(Twitch.Player.ONLINE, function() {
@@ -168,6 +170,7 @@
 				<span class="timer-item">Seconds</span>
 			</div>
 		</div>
+<!-- 		<div class="block" style="padding-bottom: 56.25%; position: relative;"><iframe width="100%" height="100%" src="https://player.twitch.tv/?video=1791207960&parent=saturdayxiii.github.io" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"  style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"><small>Powered by <a href="https://embed.tube/embed-code-generator/twitch/">twitch embed</a> generator</small></iframe></div> -->
 		<div class="block">
 			<a href="https://www.twitch.tv/dirtytraffik"><i class="fa-brands fa-twitch" style="color: #511f44;"></i></a>
 		</div>
