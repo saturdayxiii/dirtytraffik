@@ -131,29 +131,17 @@
 		<div id="twitch-embed"></div>
 	</div>
 	<script type="text/javascript">
-	  var twitchPlayer = new Twitch.Player("twitch-embed", {
-		// channel: "dirtytraffik",
+	// set twitch player options
+	  var options = {
+	  // channel: "dirtytraffik",
 		video: "1791207960",
 		parent: ["saturdayxiii.github.io", "dirtytraffik.live"]
-		width: 640,
-		height: 360,
-		autoplay: true,
-		muted: true,
-		allowfullscreen: true
 		// clientID: "your_client_id_here"
-	  });
+	  };
+	  var player = new Twitch.Player("twitch-embed", options);
 
-	  twitchPlayer.addEventListener(Twitch.Player.ONLINE, function() {
-		console.log("DirtyTraffik is live!");
-		// Show the div element with the Twitch stream
-		document.getElementById("stream-container").style.display = "block";
-	  });
-
-	  twitchPlayer.addEventListener(Twitch.Player.OFFLINE, function() {
-		console.log("DirtyTraffik is offline :(");
-		// Hide the div element with the Twitch stream
-		document.getElementById("stream-container").style.display = "none";
-	  });
+	// make div appear/disappear based on stream activity
+	  
 	</script>
 
 		<div class="block">
