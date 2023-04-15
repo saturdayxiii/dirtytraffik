@@ -127,13 +127,13 @@
 	<div class="wrap">
 
 	<script src="https://player.twitch.tv/js/embed/v1.js"></script>
-	<div class="block" id="stream-container" style="display: none;">
+	<div class="block" id="stream-container" style="display: block;">
 		<div id="twitch-embed" align="center"></div>
 	</div>
 	<script type="text/javascript">
 	// set twitch player options
 	  var options = {
-	  channel: "SlurpeeNinja",
+	  channel: "dirtytraffik",
 		//video: "1791207960",
 		parent: ["saturdayxiii.github.io", "dirtytraffik.live"]
 		/*
@@ -148,7 +148,7 @@
 	  var player = new Twitch.Player("twitch-embed", options);
 
 	// make div appear/disappear based on stream activity
-	  
+	  /*
 	  twitchPlayer.addEventListener(Twitch.Player.ONLINE, function() {
 		console.log("DirtyTraffik is live!");
 		// Show the div element with the Twitch stream
@@ -160,17 +160,17 @@
 		// Hide the div element with the Twitch stream
 		document.getElementById("stream-container").style.display = "none";
 	  });
-	  
+	  */
 	</script>
 
-		<div class="block" style="display:none;">
+		<div class="block" style="display:block;">
 			<div class="timer" id="timer">
 				<span class="timer-item" id="days"></span>
 				<span class="timer-item" id="hours"></span>
 				<span class="timer-item" id="minutes"></span>
 				<span class="timer-item" id="seconds"></span>
 			</div>
-			<div class="timer-label" style="display:none;">
+			<div class="timer-label" style="display:block;">
 				<span class="timer-item">Days</span>
 				<span class="timer-item">Hours</span>
 				<span class="timer-item">Minutes</span>
