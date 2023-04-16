@@ -217,6 +217,11 @@ var x = setInterval(function() {
   document.getElementById("minutes").innerHTML = minutes;
   document.getElementById("seconds").innerHTML = seconds;
 
+  // If the count down is finished, reset the timer to next Saturday at 8pm
+  if (distance < 0) {
+    countDownDate = getNextSaturday();
+  }
+
   // Hide the timebox for the first 3 hours of the countdown
   if (distance < 192 * 60 * 60 * 1000 && distance > 189 * 60 * 60 * 1000) {
     document.getElementById("timebox").style.display = "none";
@@ -224,10 +229,7 @@ var x = setInterval(function() {
     document.getElementById("timebox").style.display = "block";
   }
 
-  // If the count down is finished, reset the timer to next Saturday at 8pm
-  if (distance < 0) {
-    countDownDate = getNextSaturday();
-  }
+  
 }, 1000);
 
 // Function to get the next Saturday at 8pm
