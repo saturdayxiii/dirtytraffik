@@ -182,9 +182,8 @@
 			<img src="https://i.postimg.cc/yYtTf0DG/dirtytraffikprofile.png" style="width: 100%; border: 2px solid #511f44; padding: 5px 5px;" alt="profile pic">
 		</div>
 		<div class="block">
-			<h1>Animated Background</h1>
-			<p>This is an example of an HTML page with an animated background that changes colors.</p>
-		</div>
+			<h2>CONTACT</h2>
+			</div>
 	</div>
 	<script>
 		// Set the date we're counting down to
@@ -213,6 +212,7 @@
 
 		  // If the count down is finished, reset the timer to next Saturday at 8pm
 		  if (distance < 0) {
+		  	clearInterval(x); // stop the timer
 		  	countDownDate = getNextSaturday();
 		  }
 		}, 1000);
