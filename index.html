@@ -68,8 +68,11 @@
 		}
 		
 		.starbox {
-			width: 60%;
-			margin: auto;
+		/* the width sizes seem to mess with the centering in starbox and stack */
+			/* width: 60%; */
+			display: flex;
+			position: relative;
+			left: 18%;
 		}
 
 		.star {
@@ -79,16 +82,11 @@
 		}
 		
 		.stack {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-		}
-		
-		.profile {
+			position: relative;
+			left: -50%;
 			z-index: 1;
 			display: flex;
-			width: 25%;
+			width: 40%; /* width has an effect on centering starbox */
 			margin: auto;
 			background-color: white;
 			border-radius: 25px;
@@ -120,15 +118,69 @@
 			}
 		}
 	</style>
-	
-    <script src="https://kit.fontawesome.com/20faf715a1.js" crossorigin="anonymous"></script>
+	<script>
+		//countdown timer, change if (d.getDay() === 6 to any day number you want for non-saturdays
+		function countdown() {
+			// Set the date we're counting down to
+			var countDownDate = getNextSaturday();
+
+			// Update the count down every 1 second
+			var x = setInterval(function() {
+				// Get current date and time
+				var now = new Date().getTime();
+
+				// Find the distance between now and the count down date
+				var distance = countDownDate - now;
+
+				// Time calculations for days, hours, minutes and seconds
+				var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+				var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+				var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+				// Display the result in the element with id="timer"
+				document.getElementById("days").innerHTML = days;
+				document.getElementById("hours").innerHTML = hours;
+				document.getElementById("minutes").innerHTML = minutes;
+				document.getElementById("seconds").innerHTML = seconds;
+
+				// If the count down is finished, reset the timer to next Saturday at 8pm
+				if (distance < 0) {
+					clearInterval(x); // stop the timer
+					countDownDate = getNextSaturday();
+				}
+			}, 1000);
+		}
+
+		// Function to get the next Saturday at 8pm
+		function getNextSaturday() {
+		  var d = new Date();
+		  d.setHours(20);
+		  d.setMinutes(0);
+		  d.setSeconds(0);
+		  d.setMilliseconds(0);
+		  
+		  // Check if current day is Saturday and current time is past 8pm
+		  if (d.getDay() === 6 && d.getTime() < new Date().getTime()) {
+			// Set to next Saturday at 8pm
+			d.setDate(d.getDate() + (7 - d.getDay()) % 7 + 7);
+		  } else {
+			// Set to this Saturday at 8pm
+			d.setDate(d.getDate() + (7 - d.getDay()) % 7);
+		  }
+		  
+		  return d.getTime();
+		}
+	</script>
+	<!-- font awesome -->
+	<script src="https://kit.fontawesome.com/20faf715a1.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body onload="countdown()">
 	<div class="wrap">
 
 	<script src="https://player.twitch.tv/js/embed/v1.js"></script>
 	<div class="block" id="stream-container" style="display: none;">
-		<div id="twitch-embed"></div>
+		<div id="twitch-embed" align="center"></div>
 	</div>
 	<script type="text/javascript">
 	  var twitchPlayer = new Twitch.Player("twitch-embed", {
@@ -173,65 +225,19 @@
 		<div class="block">
 			<a href="https://www.twitch.tv/dirtytraffik"><i class="fa-brands fa-twitch" style="color: #511f44;"></i></a>
 		</div>
+		<!-- <div style="display: flex; justify-content: center; align-items: center;"> -->
 		<div class="starbox">
 			<svg class="star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 				<polygon points="12 0 14.859 7.358 22.118 8.119 16 13.151 17.294 20.881 12 17.273 6.706 20.881 8 13.151 1.882 8.119 9.141 7.358" />
 			</svg>
-		</div>
-		<div class="stack profile">
+		
+		<div class="stack">
 			<img src="https://i.postimg.cc/yYtTf0DG/dirtytraffikprofile.png" style="width: 100%; border: 2px solid #511f44; padding: 5px 5px;" alt="profile pic">
 		</div>
-		<div class="block">
+		</div>
+		<div class="block" align="center">
 			<h2>CONTACT</h2>
 			</div>
 	</div>
-	<script>
-		// Set the date we're counting down to
-		var countDownDate = getNextSaturday();
-
-		// Update the count down every 1 second
-		var x = setInterval(function() {
-
-		  // Get current date and time
-		  var now = new Date().getTime();
-
-		  // Find the distance between now and the count down date
-		  var distance = countDownDate - now;
-
-		  // Time calculations for days, hours, minutes and seconds
-		  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-		  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-		  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-		  // Display the result in the element with id="timer"
-		  document.getElementById("days").innerHTML = days;
-		  document.getElementById("hours").innerHTML = hours;
-		  document.getElementById("minutes").innerHTML = minutes;
-		  document.getElementById("seconds").innerHTML = seconds;
-
-		  // If the count down is finished, reset the timer to next Saturday at 8pm
-		  if (distance < 0) {
-		  	countDownDate = getNextSaturday();
-		  }
-		}, 1000);
-
-		// Function to get the next Saturday at 8pm
-		function getNextSaturday() {
-			var d = new Date();
-			d.setHours(20);
-			d.setMinutes(0);
-			d.setSeconds(0);
-			d.setMilliseconds(0);
-    			  // Set to this Saturday at 8pm
-    			  while (d.getDay() != 6) {
-      			  d.setDate(d.getDate() + 1);
-			  } else {
-			  // Set to next Saturday at 8pm
-    			  d.setDate(d.getDate() + (6 - d.getDay() + 7) % 7);
-  			}
-			return d.getTime();
-		}
-	</script>
 </body>
 </html>
