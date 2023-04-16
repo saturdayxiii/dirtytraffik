@@ -1,4 +1,201 @@
-// Set the date we're counting down to
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dirty Traffik</title>
+	<style>
+		body {
+ 		    overflow: hidden;
+			animation: colorchange 10s infinite;
+			background-color: #000;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+
+		@keyframes colorchange {
+			0% {
+				background-color: #ff6ec7;
+			}
+			33% {
+				background-color: #291145;
+			}
+			66% {
+				background-color: #00f2ff;
+			}
+			100% {
+				background-color: #ff6ec7;
+			}
+		}
+		
+		.wrap {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.block {
+			width: 80%;
+			background-color: white;
+			border-radius: 25px;
+			padding: 20px;
+			margin: 5px;
+		}
+		
+		.timer {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 50px;
+			font-weight: bold;
+			color: #333;
+		}
+
+		.timer-item {
+			margin: 0 20px;
+		}
+
+		.timer-label {
+			display: flex;
+			font-size: 20px;
+			font-weight: bold;
+			color: #666;
+			margin-top: 10px;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.starbox {
+			width: 60%;
+			margin: auto;
+		}
+
+		.star {
+			animation: starAnimation 6s infinite;
+			fill: #fff;
+			transform-origin: center;
+		}
+		
+		.stack {
+			position: absolute;
+			top: 55%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		
+		.profile {
+			z-index: 1;
+			display: flex;
+			width: 25%;
+			margin: auto;
+			background-color: white;
+			border-radius: 25px;
+			padding: 20px;
+			justify-content: center;
+			align-items: center;
+		}
+
+		@keyframes starAnimation {
+			0% {
+				transform: rotate(0) scale(1);
+				<!-- clip-path: polygon(40% 0%, 60% 0%, 100% 38%, 75% 62%, 82% 100%, 50% 75%, 18% 100%, 25% 62%, 0% 38%, 40% 0%); -->
+			}
+			25% {
+				transform: rotate(90deg) scale(0.75);
+				<!-- clip-path: polygon(0% 60%, 0% 40%, 38% 0%, 62% 25%, 100% 18%, 75% 50%, 100% 82%, 62% 75%, 38% 100%, 0% 60%); -->
+			}
+			50% {
+				transform: rotate(270deg) scale(1);
+				<!-- clip-path: polygon(60% 100%, 40% 100%, 0% 62%, 25% 38%, 18% 0%, 50% 25%, 82% 0%, 75% 38%, 100% 62%, 60% 100%); -->
+			}
+			75% {
+				transform: rotate(180deg) scale(0.25);
+				<!-- clip-path: polygon(100% 40%, 100% 60%, 62% 100%, 38% 75%, 0% 82%, 25% 50%, 0% 18%, 38% 25%, 62% 0%, 100% 40%); -->
+			}
+			100% {
+				transform: rotate(360) scale(1);
+				<!-- clip-path: polygon(40% 0%, 60% 0%, 100% 38%, 75% 62%, 82% 100%, 50% 75%, 18% 100%, 25% 62%, 0% 38%, 40% 0%); -->
+			}
+		}
+	</style>
+	
+    <script src="https://kit.fontawesome.com/20faf715a1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="wrap">
+
+	<script src="https://player.twitch.tv/js/embed/v1.js"></script>
+	<div class="block" id="stream-container" style="display: block;">
+		<div id="twitch-embed" align="center"></div>
+	</div>
+	<script type="text/javascript">
+	// set twitch player options
+	  var options = {
+	  channel: "dirtytraffik",
+		//video: "1791207960",
+		parent: ["saturdayxiii.github.io", "dirtytraffik.live"]
+		/*
+		allowfullscreen: true
+		width: 640,
+		height: 360,
+		autoplay: true,
+		muted: true,
+		*/
+		// clientID: "your_client_id_here"
+	  };
+	  var player = new Twitch.Player("twitch-embed", options);
+
+	// make div appear/disappear based on stream activity
+	  /*
+	  twitchPlayer.addEventListener(Twitch.Player.ONLINE, function() {
+		console.log("DirtyTraffik is live!");
+		// Show the div element with the Twitch stream
+		document.getElementById("stream-container").style.display = "block";
+	  });
+
+	  twitchPlayer.addEventListener(Twitch.Player.OFFLINE, function() {
+		console.log("DirtyTraffik is offline :(");
+		// Hide the div element with the Twitch stream
+		document.getElementById("stream-container").style.display = "none";
+	  });
+	  */
+	</script>
+
+		<div class="block" id="timebox" style="display:block;">
+			<div class="timer" id="timer">
+				<span class="timer-item" id="days"></span>
+				<span class="timer-item" id="hours"></span>
+				<span class="timer-item" id="minutes"></span>
+				<span class="timer-item" id="seconds"></span>
+			</div>
+			<div class="timer-label" style="display:block;">
+				<span class="timer-item">Days</span>
+				<span class="timer-item">Hours</span>
+				<span class="timer-item">Minutes</span>
+				<span class="timer-item">Seconds</span>
+			</div>
+		</div>
+<!-- 		<div class="block" style="padding-bottom: 56.25%; position: relative;"><iframe width="100%" height="100%" src="https://player.twitch.tv/?video=1791207960&parent=saturdayxiii.github.io" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"  style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"><small>Powered by <a href="https://embed.tube/embed-code-generator/twitch/">twitch embed</a> generator</small></iframe></div> -->
+		<div class="block">
+			<a href="https://www.twitch.tv/dirtytraffik"><i class="fa-brands fa-twitch" style="color: #511f44;"></i></a>
+		</div>
+		<div class="starbox">
+			<svg class="star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+				<polygon points="12 0 14.859 7.358 22.118 8.119 16 13.151 17.294 20.881 12 17.273 6.706 20.881 8 13.151 1.882 8.119 9.141 7.358" />
+			</svg>
+		
+		<div class="stack profile" >
+			<img src="https://i.postimg.cc/yYtTf0DG/dirtytraffikprofile.png" style="width: 100%; border: 2px solid #511f44; padding: 5px 5px;" alt="profile pic">
+		</div></div>
+		<div class="block">
+			<h1>Animated Background</h1>
+			<p>This is an example of an HTML page with an animated background that changes colors.</p>
+		</div>
+	</div>
+  <script>
+	// Set the date we're counting down to
 var countDownDate = getNextSaturday();
 
 // Update the count down every 1 second
@@ -47,3 +244,6 @@ function getNextSaturday() {
   }
   return d.getTime();
 }
+</script>
+</body>
+</html>
