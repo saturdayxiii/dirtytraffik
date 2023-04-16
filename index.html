@@ -201,8 +201,8 @@
 
     if (distance <= 0) {
       // Reset the countdown to the next Saturday at 8pm
+      clearInterval(x); // stop the timer
       countDownDate = getNextSaturday();
-      distance = countDownDate - now;
     }
 
     // Time calculations for days, hours, minutes and seconds
