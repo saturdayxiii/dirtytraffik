@@ -1,3 +1,22 @@
+
+Skip to content
+saturdayxiii /
+dirtytraffik
+Public
+
+Code
+Issues
+Pull requests
+Actions
+Projects
+
+More
+dirtytraffik/index.html
+@saturdayxiii
+saturdayxiii Update index.html
+History
+1 contributor
+249 lines (224 sloc) 7.02 KB
 <!DOCTYPE html>
 <html>
 <head>
@@ -154,7 +173,6 @@
 		// Show the div element with the Twitch stream
 		document.getElementById("stream-container").style.display = "block";
 	  });
-
 	  twitchPlayer.addEventListener(Twitch.Player.OFFLINE, function() {
 		console.log("DirtyTraffik is offline :(");
 		// Hide the div element with the Twitch stream
@@ -220,7 +238,7 @@ var x = setInterval(function() {
   document.getElementById("seconds").innerHTML = seconds;
 
   // Hide the timebox for the first 3 hours of the countdown
-  if (distance > 0 && distance < 3 * 60 * 60 * 1000) {
+  if (distance < 192 * 60 * 60 * 1000 && distance > 189 * 60 * 60 * 1000) {
     document.getElementById("timebox").style.display = "none";
   } else {
     document.getElementById("timebox").style.display = "block";
