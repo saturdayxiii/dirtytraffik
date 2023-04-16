@@ -154,6 +154,7 @@
 		// Show the div element with the Twitch stream
 		document.getElementById("stream-container").style.display = "block";
 	  });
+
 	  twitchPlayer.addEventListener(Twitch.Player.OFFLINE, function() {
 		console.log("DirtyTraffik is offline :(");
 		// Hide the div element with the Twitch stream
@@ -162,7 +163,7 @@
 	  */
 	</script>
 
-		<div class="block" id="timebox" style="display:block;">
+		<div class="block" style="display:block;">
 			<div class="timer" id="timer">
 				<span class="timer-item" id="days"></span>
 				<span class="timer-item" id="hours"></span>
@@ -193,56 +194,49 @@
 			<p>This is an example of an HTML page with an animated background that changes colors.</p>
 		</div>
 	</div>
-  <script>
-	// Set the date we're counting down to
-var countDownDate = getNextSaturday();
+	<script>
+		// Set the date we're counting down to
+		var countDownDate = getNextSaturday();
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+		// Update the count down every 1 second
+		var x = setInterval(function() {
 
-  // Get current date and time
-  var now = new Date().getTime();
+		  // Get current date and time
+		  var now = new Date().getTime();
 
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+		  // Find the distance between now and the count down date
+		  var distance = countDownDate - now;
 
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+		  // Time calculations for days, hours, minutes and seconds
+		  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // Display the result in the element with id="timer"
-  document.getElementById("days").innerHTML = days;
-  document.getElementById("hours").innerHTML = hours;
-  document.getElementById("minutes").innerHTML = minutes;
-  document.getElementById("seconds").innerHTML = seconds;
+		  // Display the result in the element with id="timer"
+		  document.getElementById("days").innerHTML = days;
+		  document.getElementById("hours").innerHTML = hours;
+		  document.getElementById("minutes").innerHTML = minutes;
+		  document.getElementById("seconds").innerHTML = seconds;
 
-  // Hide the timebox for the first 3 hours of the countdown
-  if (distance < 192 * 60 * 60 * 1000 && distance > 189 * 60 * 60 * 1000) {
-    document.getElementById("timebox").style.display = "none";
-  } else {
-    document.getElementById("timebox").style.display = "block";
-  }
+		  // If the count down is finished, reset the timer to next Saturday at 8pm
+		  if (distance < 0) {
+		  	countDownDate = getNextSaturday();
+		  }
+		}, 1000);
 
-  // If the count down is finished, reset the timer to next Saturday at 8pm
-  if (distance < 0) {
-    countDownDate = getNextSaturday();
-  }
-}, 1000);
-
-// Function to get the next Saturday at 8pm
-function getNextSaturday() {
-  var d = new Date();
-  d.setHours(20);
-  d.setMinutes(0);
-  d.setSeconds(0);
-  d.setMilliseconds(0);
-  while (d.getDay() != 6) {
-    d.setDate(d.getDate() + 1);
-  }
-  return d.getTime();
-}
-</script>
+		// Function to get the next Saturday at 8pm
+		function getNextSaturday() {
+			var d = new Date();
+			d.setHours(20);
+			d.setMinutes(0);
+			d.setSeconds(0);
+			d.setMilliseconds(0);
+			while (d.getDay() != 6) {
+				d.setDate(d.getDate() + 1);
+			}
+			return d.getTime();
+		}
+	</script>
 </body>
 </html>
