@@ -212,7 +212,6 @@
 
 		  // If the count down is finished, reset the timer to next Saturday at 8pm
 		  if (distance < 0) {
-		  	clearInterval(x); // stop the timer
 		  	countDownDate = getNextSaturday();
 		  }
 		}, 1000);
@@ -224,15 +223,12 @@
 			d.setMinutes(0);
 			d.setSeconds(0);
 			d.setMilliseconds(0);
-			// Check if current time is past 8pm
-			if (d.getTime() < new Date().getTime()) {
-		          // Set to next Saturday at 8pm
-    			  d.setDate(d.getDate() + (6 - d.getDay() + 7) % 7);
-  			} else {
     			  // Set to this Saturday at 8pm
     			  while (d.getDay() != 6) {
       			  d.setDate(d.getDate() + 1);
-			  }
+			  } else {
+			  // Set to next Saturday at 8pm
+    			  d.setDate(d.getDate() + (6 - d.getDay() + 7) % 7);
   			}
 			return d.getTime();
 		}
