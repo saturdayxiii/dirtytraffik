@@ -70,9 +70,10 @@
 		.starbox {
 		/* the width sizes seem to mess with the centering in starbox and stack */
 			/* width: 60%; */
+			margin-top: 5%;
 			display: flex;
 			position: relative;
-			left: 18%;
+			left: 16%;
 		}
 
 		.star {
@@ -122,7 +123,7 @@
 		//countdown timer, change if (d.getDay() === 6 to any day number you want for non-saturdays
 		function countdown() {
 			// Set the date we're counting down to
-			var countDownDate = getNextSaturday();
+			var countDownDate = getTargetDate();
 
 			// Update the count down every 1 second
 			var x = setInterval(function() {
@@ -146,29 +147,30 @@
 
 				// If the count down is finished, reset the timer to next Saturday at 8pm
 				if (distance < 0) {
-					clearInterval(x); // stop the timer
-					countDownDate = getNextSaturday();
+					countDownDate = getTargetDate();
 				}
 			}, 1000);
 		}
 
-		// Function to get the next Saturday at 8pm
-		function getNextSaturday() {
-		  var d = new Date();
-		  d.setHours(20);
-		  d.setMinutes(0);
-		  d.setSeconds(0);
-		  d.setMilliseconds(0);
-		  
-		  // Check if current day is Saturday and current time is past 8pm
-		  if (d.getDay() === 6 && d.getTime() < new Date().getTime()) {
-			// Set to next Saturday at 8pm
-			d.setDate(d.getDate() + (7 - d.getDay()) % 7 + 7);
-		  } else {
-			// Set to this Saturday at 8pm
-			d.setDate(d.getDate() + (7 - d.getDay()) % 7);
-		  }
-		  
+		// Function to get the target date
+		function getTargetDate() {
+			var d = new Date();
+			//set target day sun=0,mon=1,etc
+			var day = 1;
+			// other time units don't need to be variables:
+			d.setHours(20);
+			d.setMinutes(0);
+			d.setSeconds(0);
+			d.setMilliseconds(0);
+		 
+			// Check if current date and time is past target
+			if (d.getDay() === day && d.getTime() < new Date().getTime()) {
+				// Set to next week
+				d.setDate(d.getDate() + (7 - d.getDay()) % 7 + 7);
+			}  else {
+				// or do weird math to keep the numbers in this week
+				d.setDate(d.getDate() + (7 - d.getDay()) % 7 + day);
+			}
 		  return d.getTime();
 		}
 	</script>
@@ -222,8 +224,8 @@
 				<span class="timer-item">Seconds</span>
 			</div>
 		</div>
-		<div class="block">
-			<a href="https://www.twitch.tv/dirtytraffik"><i class="fa-brands fa-twitch" style="color: #511f44;"></i></a>
+		<div class="block" align="center">
+			<a href="https://www.twitch.tv/dirtytraffik"><i class="fa-brands fa-twitch" style="color: #511f44; font-size: 2rem;"></i></a>
 		</div>
 		<!-- <div style="display: flex; justify-content: center; align-items: center;"> -->
 		<div class="starbox">
@@ -232,11 +234,11 @@
 			</svg>
 		
 		<div class="stack">
-			<img src="https://i.postimg.cc/yYtTf0DG/dirtytraffikprofile.png" style="width: 100%; border: 2px solid #511f44; padding: 5px 5px;" alt="profile pic">
+			<img src="dirtyTraffik.webp" style="width: 100%; border: 2px solid #511f44; padding: 5px 5px;" alt="profile pic">
 		</div>
 		</div>
 		<div class="block" align="center">
-			<h2>CONTACT</h2>
+			<h2><a href="https://docs.google.com/forms/d/e/1FAIpQLSfeBiZXlELMrRmv-XhRP2zYvXQkl2FwMBJShXf5BIMbiFQQlA/viewform" target="_blank">CONTACT</a></h2>
 			</div>
 	</div>
 </body>
