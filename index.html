@@ -2,29 +2,35 @@
 <html>
 <head>
 	<title>Dirty Traffik</title>
+	<link href='https://fonts.googleapis.com/css?family=Covered By Your Grace' rel='stylesheet'>
 	<style>
 		body {
- 		    overflow: hidden;
 			animation: colorchange 10s infinite;
 			background-color: #000;
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			height: 100vh;
+			font-family: 'Covered By Your Grace';
+			font-size: 30px;
+			-ms-overflow-style: none;  /* IE and Edge */
+			scrollbar-width: none;  /* Firefox */
+		}
+		body::-webkit-scrollbar {
+		display: none;
 		}
 
 		@keyframes colorchange {
 			0% {
-				background-color: #ff6ec7;
+				background-color: #ff498b;
 			}
 			33% {
 				background-color: #291145;
 			}
 			66% {
-				background-color: #00f2ff;
+				background-color: #00ADB7;
 			}
 			100% {
-				background-color: #ff6ec7;
+				background-color: #ff498b;
 			}
 		}
 		
@@ -43,7 +49,39 @@
 			padding: 20px;
 			margin: 5px;
 		}
-		
+		.accordion {
+			display: block;
+			background-color: white;
+			border-radius: 25px;
+			cursor: pointer;
+			font-family: 'Covered By Your Grace';
+			font-size: 30px;
+			color: #291145;
+			padding: 20px;
+			margin: 5px;
+			width: 80%;
+			text-align: center;
+			border: none;
+			transition: 0.5s ease;
+		}
+		.active, .accordion:hover {
+			background-color: #cceef0; 
+		}
+		.panel {
+			display: none;
+			overflow: hidden; 
+			background-color: white;
+			cursor: pointer;
+			font-family: 'Covered By Your Grace';
+			font-size: 30px;
+			color: #291145;
+			padding: 20px;
+			margin: -5px;
+			width: 60%;
+			text-align: center;
+			border: none;
+			transition: 0.5s ease;
+		}
 		.timer {
 			display: flex;
 			justify-content: center;
@@ -179,7 +217,7 @@
 </head>
 <body onload="countdown()">
 	<div class="wrap">
-
+	<div class="block" align="center" style="color: #291145"><h1>DIRTY TRAFFIK</h1></div>
 	<script src="https://player.twitch.tv/js/embed/v1.js"></script>
 	<div class="block" id="stream-container" style="display: none;">
 		<div id="twitch-embed" align="center"></div>
@@ -240,6 +278,74 @@
 		<div class="block" align="center">
 			<h2><a href="https://docs.google.com/forms/d/e/1FAIpQLSfeBiZXlELMrRmv-XhRP2zYvXQkl2FwMBJShXf5BIMbiFQQlA/viewform" target="_blank">CONTACT</a></h2>
 			</div>
+		<button class="accordion"><h2>Past Shows</h2></button>
+			<div class="panel">
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020230415.mkv" target="_blank">20230415</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirtytraffik%2020230318.mp4" target="_blank">20230318</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirtytraffik%2020230225.mp4" target="_blank">20230225</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirtytraffik%2020230114.mp4" target="_blank">20230114</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirtytraffik%2020221203.mp4" target="_blank">20221203</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirtytraffik%2020221119.mp4" target="_blank">20221119</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirtytraffik%2020221022.mp4" target="_blank">20221022</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220917.mp4" target="_blank">20220917</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220903.mkv" target="_blank">20220903</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220903.mp4" target="_blank">20220903</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220827.mp4" target="_blank">20220827</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220806.mkv" target="_blank">20220806</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220806.mp4" target="_blank">20220806</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220730.mkv" target="_blank">20220730</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220730.mp4" target="_blank">20220730</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220723.mp4" target="_blank">20220723</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220716.mp4" target="_blank">20220716</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220709.mkv" target="_blank">20220709</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220709.mp4" target="_blank">20220709</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220702.mkv" target="_blank">20220702</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220702.mp4" target="_blank">20220702</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220626.mkv" target="_blank">20220626</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220626.mp4" target="_blank">20220626</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220618.mp4" target="_blank">20220618</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220611.mp4" target="_blank">20220611</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220604.mp4" target="_blank">20220604</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220514.mp4" target="_blank">20220514</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220429.mp4" target="_blank">20220429</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220409.mp4" target="_blank">20220409</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220402.mp4" target="_blank">20220402</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220326.mp4" target="_blank">20220326</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220319.mp4" target="_blank">20220319</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220312.mp4" target="_blank">20220312</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220305.mp4" target="_blank">20220305</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220226.mp4" target="_blank">20220226</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220212.mp4" target="_blank">20220212</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220205.mp4" target="_blank">20220205</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220129.mp4" target="_blank">20220129</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220122.mp4" target="_blank">20220122</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220115.mp4" target="_blank">20220115</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220108.mp4" target="_blank">20220108</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020220101.mp4" target="_blank">20220101</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020211220.mp4" target="_blank">20211220</a><br>
+				<a href="https://archive.org/download/dirty-traffik/dirty%20traffik%2020211211.mp4" target="_blank">20211211</a><br>
+		</div>
 	</div>
+	<script>
+	// Accordion function
+		var acc = document.getElementsByClassName("accordion");
+		var i;
+
+		for (i = 0; i < acc.length; i++) {
+		  acc[i].addEventListener("click", function() {
+			/* Toggle between adding and removing the "active" class,
+			to highlight the button that controls the panel */
+			this.classList.toggle("active");
+
+			/* Toggle between hiding and showing the active panel */
+			var panel = this.nextElementSibling;
+			if (panel.style.display === "block") {
+			  panel.style.display = "none";
+			} else {
+			  panel.style.display = "block";
+			}
+		  });
+		}
+	</script>
 </body>
 </html>
