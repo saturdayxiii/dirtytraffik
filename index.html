@@ -203,7 +203,7 @@
 			d.setSeconds(0);
 			d.setMilliseconds(0);
 		 
-		 // this code works on Sundays
+		 // this code works on non-targetted days
 		 // Check if current date and time is past target
 			<!-- if (d.getDay() === day && d.getTime() < new Date().getTime()) { -->
 				<!-- // Set to next week -->
@@ -213,18 +213,33 @@
 				<!-- d.setDate(d.getDate() + (7 - d.getDay()) % 7 + day); -->
 			<!-- } -->
 		 
-		 // this code works on Mondays
-			// Check if current date and time is past target
+		 // this code works on same as target day
+			// Check if current day = target day and if time is less than target
 			if (d.getDay() === day && d.getTime() < new Date().getTime()) {
 				// Set to next week
 				d.setDate(d.getDate() + (day - d.getDay()) % 7 + 7);
-			// if sunday aka 0, then new math needed.  this needs to be troubleshooted on sunday.
-			}  else if (day === 0 && d.getDay() === day && d.getTime() > new Date().getTime()){
+			// Check if current day = target day and if time is more than target
+			}  else if (d.getDay() === day && d.getTime() > new Date().getTime()) {
 				d.setDate(d.getDate())
-			}  else {
-				// or do weird math to keep the numbers in this week
-				d.setDate(d.getDate() + (day - d.getDay()) % day);
+			// Check if current day is past target day
+			}  else if (d.getDay() > day) {
+				d.setDate(d.getDate() + (7 - d.getDay()) % 7 + day);
+			// else is else
+			} else {
+				d.setDate(d.getDate() + (7 - d.getDay()) % 7);
 			}
+			
+		// this code works on Tuesdays
+			// Check if current date and time is past target
+			<!-- if (d.getDay() === day && d.getTime() < new Date().getTime()) { -->
+			<!-- if (d.getDay() === day && d.getTime() < new Date().getTime()) { -->
+				<!-- // Set to next week -->
+				<!-- d.setDate(d.getDate() + (7 - d.getDay()) % 7 + 7); -->
+			<!-- }  else { -->
+				<!-- // or do weird math to keep the numbers in this week -->
+				<!-- d.setDate(d.getDate() + (7 - d.getDay()) % 7 + day); -->
+			<!-- } -->
+			
 		  return d.getTime();
 		}
 	</script>
