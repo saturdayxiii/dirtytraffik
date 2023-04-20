@@ -202,18 +202,7 @@
 			d.setMinutes(0);
 			d.setSeconds(0);
 			d.setMilliseconds(0);
-		 
-		 // this code works on non-targetted days
-		 // Check if current date and time is past target
-			<!-- if (d.getDay() === day && d.getTime() < new Date().getTime()) { -->
-				<!-- // Set to next week -->
-				<!-- d.setDate(d.getDate() + (7 - d.getDay()) % 7 + 7); -->
-			<!-- }  else { -->
-				<!-- // or do weird math to keep the numbers in this week -->
-				<!-- d.setDate(d.getDate() + (7 - d.getDay()) % 7 + day); -->
-			<!-- } -->
-		 
-		 // this code works on same as target day
+
 			// Check if current day = target day and if time is less than target
 			if (d.getDay() === day && d.getTime() < new Date().getTime()) {
 				// Set to next week
@@ -228,17 +217,6 @@
 			} else {
 				d.setDate(d.getDate() + (7 - d.getDay()) % 7);
 			}
-			
-		// this code works on Tuesdays
-			// Check if current date and time is past target
-			<!-- if (d.getDay() === day && d.getTime() < new Date().getTime()) { -->
-			<!-- if (d.getDay() === day && d.getTime() < new Date().getTime()) { -->
-				<!-- // Set to next week -->
-				<!-- d.setDate(d.getDate() + (7 - d.getDay()) % 7 + 7); -->
-			<!-- }  else { -->
-				<!-- // or do weird math to keep the numbers in this week -->
-				<!-- d.setDate(d.getDate() + (7 - d.getDay()) % 7 + day); -->
-			<!-- } -->
 			
 		  return d.getTime();
 		}
@@ -270,16 +248,18 @@
 		console.log("DirtyTraffik is live!");
 		// Show the div element with the Twitch stream
 		document.getElementById("stream-container").style.display = "block";
+		document.getElementById("countdown").style.display = "none";
 	  });
 
 	  twitchPlayer.addEventListener(Twitch.Player.OFFLINE, function() {
 		console.log("DirtyTraffik is offline :(");
 		// Hide the div element with the Twitch stream
 		document.getElementById("stream-container").style.display = "none";
+		document.getElementById("countdown").style.display = "block";
 	  });
 	</script>
 
-		<div class="block">
+		<div class="block" id="countdown">
 			<div class="timer" id="timer">
 				<span class="timer-item" id="days"></span>
 				<span class="timer-item" id="hours"></span>
