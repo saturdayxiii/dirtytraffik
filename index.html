@@ -196,7 +196,7 @@
 		function getTargetDate() {
 			var d = new Date();
 			//set target day sun=0,mon=1,etc... but sunday...0 breaks the code.  The code changes depending on what date you check because of get.day returns a different number every day
-			var day = 6;
+			var day = 1;
 			// other time units don't need to be variables:
 			d.setHours(20);
 			d.setMinutes(0);
@@ -228,7 +228,7 @@
 	<div class="wrap">
 	<div class="block" align="center" style="color: #291145"><h1>DIRTY TRAFFIK</h1></div>
 	<script src="https://player.twitch.tv/js/embed/v1.js"></script>
-	<div class="block" id="stream-container" style="display: block;">
+	<div class="block" id="stream-container" style="display: none;">
 		<div id="twitch-embed" align="center"></div>
 	</div>
 	<script type="text/javascript">
@@ -259,7 +259,7 @@
 	  });
 	</script>
 
-		<div class="block" id="countdown" style="display: none;">
+		<div class="block" id="countdown">
 			<div class="timer" id="timer">
 				<span class="timer-item" id="days"></span>
 				<span class="timer-item" id="hours"></span>
